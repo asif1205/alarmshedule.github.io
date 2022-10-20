@@ -1,0 +1,195 @@
+
+/* *{
+    margin: 0;
+} */
+body{
+    background-color: blue;
+}
+#heading{
+    text-align: center;
+    color:white;
+    font-size:60px;
+}
+#sheduletime{
+    padding: 10px 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 28px;
+    border-radius: 20px;
+    margin: 20px;
+    
+}
+
+#sheduletime:hover{
+    background-color:gainsboro;
+}
+.inputtext{
+    justify-content: center;
+
+}
+.textdiv{
+    background-color: yellow;
+    justify-content: center;
+    text-align: center;
+      /* display: flex; */
+
+}
+.inputtextclass{
+    border-radius: 12px;
+    font-size: larger;
+}
+
+
+#name{
+    font-size:20px;
+    border-radius: 10px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color:black;
+    font-weight: bold; 
+}
+#name:hover{
+    background-color:gainsboro;
+}
+#time{
+    padding:7px;
+    font-size:20px;
+    color:black;
+    border-radius: 7px;
+    font-weight: normal;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin:10px 0px;
+}
+#time:hover{
+    background-color:gainsboro;
+}
+
+#submitbutton{
+    padding:5px;
+    font-size:larger;
+    padding-left:30px;
+    padding-right:30px;
+    border-radius: 15px;
+    text-align: center;
+
+}
+
+#submitbutton:hover{
+    background-color:gainsboro;
+}
+#clock{
+    color: white;
+    font-size:50px;
+    font-weight: bolder;
+    display: inline;
+    padding: 20px 50px;
+    margin-top: 5px;
+    border: solid 3px wheat;
+    border-radius: 10px;
+}
+/* #task{
+         margin-top: 100px;
+         margin-left: 20px;
+} */
+
+div#tasks{
+    /* border: 2px wheat solid; */
+    /* display: inline-block; */
+    
+    /* background-color: white;
+    font-size:30px;
+    font-weight: bolder;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 6px; */
+    /* flex-direction: column; */
+    
+    display: inline-block;
+   position:absolute;
+
+}
+#resultidf{
+    justify-content: center;
+    color:green;
+    font-size: 25px;
+    font-weight: bolder;
+    padding :60px;
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+    /* margin-left: 600px;
+    margin-top: 55px; */
+    /* padding:-390px 60px; */
+    border-radius: 10px;
+   margin-left: 600px;
+}
+span{
+    font-size:50px;
+    color:green;
+    text-align: center;
+    font-weight: bolder;
+    padding:10px;
+    background-color:white;
+    
+}
+#resultidf a{
+    text-decoration: none;
+    border: 3px;
+    border-radius: 6px;
+    background-color: rgb(236, 229, 229);
+    padding: 5px;
+}
+#resultidf a:hover{
+    background-color:greenyellow;
+}
+
+
+/* div#result{
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    flex-direction: column;
+
+    
+    flex-direction: column;
+
+} */
+#result{
+    display: inline-block;
+}
+
+.tasksindisplay{
+    background-color: white;
+    padding:70px 30px;
+    font-size: 30px;
+    font-weight: bolder;
+    display: inline-block;
+    border-radius: 10px;
+
+}
+
+
+
+#late{
+    color: red;
+    font-size:30px;
+    font-weight: bolder;
+    position: absolute;
+    margin-top: 240px;
+    margin-left: 10px;
+}
+#stop{
+    position: absolute;
+    margin-top: 290px;
+    padding:8px 60px;
+    border-radius: 10px;
+    margin-left: 100px;
+    
+}
+#stop:hover{
+    background-color: chartreuse;
+}

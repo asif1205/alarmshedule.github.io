@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desinging.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">......Welcome in alerm sheduling.....</h1>
+
+    <script>
+        var te;
+        var finaltimeforprinting;
+        var realtime;
+        var check=false;
+        var nocheck=false;
+        var count=0; 
+        var timer;
+        var paralate;
+ 
+        var t=false;
+        var paradiv;
+        var min=0;
+        function takedata(){
+             var text=`
+    <form onsubmit="submitEvent(event)">
+        <div>
+            Task : <input type="text" name="name" id="name" placeholder="Enter the destination.">
+        </div>
+        <div>
+            
+           Time :  <input type="time" name="email" id="time">
+        </div>
+        <div>
+             <button onclick=submitEvent() id="submitbutton"placeholder="set time">Submit</button>
+        </div>
+    </form>`;
+      te=document.getElementById("formtext");
+     te.innerHTML+=text;
+
+           }
+
+        function submitEvent(event) {
+        // event.preventDefault();
+        var name = document.getElementById("name");
+        var time = document.getElementById("time");
+        te.innerHTML="";
+        var realtask=name.value;
+         realtime=time.value;
+        // document.write(task+"<br>");
+       
+        
+
+
+       
+           
+        // // setInterval(time,1000); 
+        // // function time()
+        // // {
+        //     var dt = new Date();
+        //      // gives the value in 24 hours format
+        //     hours=hours%12;
+        //     var minutes = dt.getMinutes(); 
+        //     var finalTime = "Time  - " + hours + ":" + minutes; 
+        //     document.write(finalTime)
+        // // }
+
+   
+
+        let a;
+        let stime;
+         setInterval(() => {
+          a = new Date();
+          var hours = a.getHours();
+          var timehour=hours;
+          hours=hours%12;
+          var minutes=a.getMinutes();
+          var second= a.getSeconds();
+          var div=document.getElementById("task")
+
+          finaltimeforprinting=hours+` : `+minutes+` : `+second;
+        //   div.innerHTML=`<p id="clock"> `+finaltimeforprinting+` </p>`;  
+           
+          var h=realtime.split(":");
+          var parts=h[0];
+          var h_num=parseInt(parts);
+             h_num=h_num%12;
+             console.log(h_num);
+          var parts=h[1];
+          var m_num=parseInt(parts);
+
+
+          realtimeforshow=h_num+" : "+m_num;
+
+          var sesm=0;
+          var sesh=0;
+           if(sesm==0 && sesh>0)
+           {
+               sesm=60;
+               sesh-=1;
+           }
+          m=m_num-minutes;
+          if(m<0)
+          {
+            sesm=0;
+          }
+          else{
+            sesm=m_num-minutes;
+          }
+          sesh=h_num-hours;
+          sestime=sesh+" : "+sesm;
+
+          
+
+
+
+        var tasksdiv=document.getElementById("tasks");
+        tasksdiv.innerHTML=`<Given class="tasksindisplay"> Given Task is : `+realtask+` <br><br> Given Time is : `+realtimeforshow+`<br><br> You have `+sestime+` for this </p>`;
+
+        
+        
+            if(sesm==0 && sesh==0 && check==false)
+            {
+               if(check==false && nocheck==false)
+               { 
+               var proceed = confirm("Have you arrived your destinatin?"); 
+               }
+               if (proceed==true && nocheck==false)
+                     { 
+                       check=true;
+                       var res=document.getElementById("result");
+                       
+                       res.innerHTML+=`<p id="resultidf"><span>Congrats!!</span> <br><br>Task is completed within time.<br><br><a href="index.html"id="anchor">Use again</a></p>`;
+                       
+                       tasksdiv.innerHTML="";
+                     }
+               else {
+                
+                nocheck=true;
+                
+                        // timer=setInterval(() => 
+                        //   {
+                            count+=1;
+                            if(count==60)
+                            {
+                                count=0;
+                                min+=1;
+                            }
+                            if(t==false)
+                            {
+                             paradiv=document.getElementById("stoptime");
+                            paradiv.innerHTML=`<p id="late">you are late : `+min+` : `+count+`(me:se)</p><p id="arrive">if you arrived then click on arrived </p>`; 
+                            
+                        //    },60000);
+                     
+                            paralate=document.getElementById("showtime");
+                            paralate.innerHTML=`<button type="button" id="stop"> arrived </button>`;
+                            document.getElementById("stop").addEventListener("click", stopInterval);
+                            }
+                    }
+            }
+           
+
+          
+         }, 1000);
+        
+
+         function stopInterval() {
+            var res=document.getElementById("result");
+                       
+                       res.innerHTML+=`<p id="resultidf"><span style="color:red;">Bad Luck!!</span> <br><br>Task is completed but not in time(try next time).<br> You are late `+min+`:`+count+` (mi:se)<br><br><a href="index.html"id="anchor">Use again</a></p>`;
+                       paradiv.innerHTML="";
+                       paralate.innerHTML="";
+                       t=true;
+
+}
+
+
+
+        // document.getElementById("currenttime").textContent = datetime;
+    }
+    </script>
+    <div class="textdiv">
+    <input type="button" onclick="takedata()"value=" Add the time shedule for today" target="_self"id="sheduletime"> </input>
+       
+      <form action=""id="formtext"onsubmit="submitEvent(event)">
+
+      </form>
+
+      <p id="currenttime"></p>
+    </div>
+
+    <div id="task">
+         
+    </div>
+
+    <div  id="tasks">
+
+    </div>
+    <div id="showtime"></div>
+
+    <div id="stoptime"></div>
+
+    </div>
+    <div id="result"></div>
+</body>
+
+
+</html>
